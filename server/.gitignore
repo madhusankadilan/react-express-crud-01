@@ -1,0 +1,5 @@
+# build directory
+dist
+
+# package managers
+node_modules
