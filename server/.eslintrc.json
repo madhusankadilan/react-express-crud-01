@@ -2,7 +2,7 @@
     "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": ["@typescript-eslint"],
-    "ignorePatterns": ["**/models/*.js", "**/migrations/*.js", "**/config/*.js"],
+    "ignorePatterns": ["**/models/*.js", "**/migrations/*.js", "**/config/*.js", "**/seeders/*.js"],
     "rules": {
         "@typescript-eslint/ban-ts-comment": "off"
     },

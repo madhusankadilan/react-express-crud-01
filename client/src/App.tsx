@@ -9,33 +9,31 @@ import { Teachers } from "./components/Teachers";
 function App() {
     return (
         <BrowserRouter>
-            <div>
-                <div className="menu-bar">
-                    <ul style={{ listStyleType: "none" }}>
-                        <li>
-                            <Link to="/">
-                                <img
-                                    src={logo}
-                                    className="App-logo"
-                                    alt="logo"
-                                />
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/classes">Classes</Link>
-                        </li>
-                        <li>
-                            <Link to="/teacher">Teacher</Link>
-                        </li>
-                    </ul>
-                </div>
-                <div>
-                    <Routes>
-                        <Route path="/" element={<Dashboard />} />
-                        <Route path="/classes" element={<Classes />} />
-                        <Route path="/teacher" element={<Teachers />} />
-                    </Routes>
-                </div>
+            <div className="menu-bar">
+                <ul className="menu-item-wrapper">
+                    <li className="menu-item">
+                        <Link to="/">
+                            <img src={logo} alt="logo" />
+                        </Link>
+                    </li>
+                    <li className="menu-item">
+                        <Link to="/classes" className="menu-item-link">
+                            Classes
+                        </Link>
+                    </li>
+                    <li className="menu-item">
+                        <Link to="/teacher" className="menu-item-link">
+                            Teacher
+                        </Link>
+                    </li>
+                </ul>
+            </div>
+            <div className="content">
+                <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path="/classes" element={<Classes />} />
+                    <Route path="/teacher" element={<Teachers />} />
+                </Routes>
             </div>
         </BrowserRouter>
     );
