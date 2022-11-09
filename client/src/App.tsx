@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
-import { Dashboard } from "./components/Dashboard";
-import { Classes } from "./components/Classes";
-import { Teachers } from "./components/Teachers";
+import { Dashboard } from "./modules/Dashboard";
+import { Classes } from "./modules/Classes";
+import { TeachersPage } from "./modules/Teachers/components";
 
 function App() {
     return (
@@ -32,7 +32,7 @@ function App() {
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
                     <Route path="/classes" element={<Classes />} />
-                    <Route path="/teacher" element={<Teachers />} />
+                    <Route path="/teacher" element={<TeachersPage />} />
                 </Routes>
             </div>
         </BrowserRouter>
