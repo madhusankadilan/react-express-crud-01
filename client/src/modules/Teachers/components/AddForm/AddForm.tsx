@@ -9,9 +9,10 @@ const { Option } = Select;
 
 type Props = {
     subjectList: Subject[];
+    hideAddForm: () => void;
 };
 
-export const AddForm = ({ subjectList }: Props) => {
+export const AddForm = ({ subjectList, hideAddForm }: Props) => {
     const [form] = Form.useForm();
 
     const handleSubjectChange = (value: number) => {
@@ -24,6 +25,7 @@ export const AddForm = ({ subjectList }: Props) => {
     };
 
     const onReset = () => {
+        hideAddForm();
         form.resetFields();
     };
 

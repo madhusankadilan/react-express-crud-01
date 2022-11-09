@@ -47,6 +47,15 @@ export const TeachersPage = () => {
         });
     };
 
+    const hideAddForm = () => {
+        setLocalState((prev) => {
+            return {
+                ...prev,
+                isVisibleAddForm: false,
+            };
+        });
+    };
+
     const renderHttpAlert = () => {
         return (
             <>
@@ -97,7 +106,7 @@ export const TeachersPage = () => {
         <div className="page-wrapper">
             {renderHttpAlert()}
             {validations.isVisibleAddForm ? (
-                <AddForm subjectList={subjectList}/>
+                <AddForm subjectList={subjectList} hideAddForm={hideAddForm} />
             ) : (
                 <>
                     {validations.hasTeachers ? (

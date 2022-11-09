@@ -24,6 +24,21 @@
     display: inline-block;
 }
 
+.menu-item.first,
+.menu-item.second,
+.menu-item-link.first,
+.menu-item-link.second {
+    height: 100%;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-item.first {
+    margin-left: 10%;
+}
+
 .content {
     padding-top: 88px;
     height: 100vh;
