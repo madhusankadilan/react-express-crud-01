@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
 import logo from "./logo.svg";
 import "./App.css";
 import { Dashboard } from "./modules/Dashboard";
-import { Classes } from "./modules/Classes";
+import { ClassesPage } from "./modules/Classes/components";
 import { TeachersPage } from "./modules/Teachers/components";
 
 const activeStyle = {
@@ -47,7 +47,7 @@ function App() {
             <div className="content">
                 <Routes>
                     <Route path="/" element={<Dashboard />} />
-                    <Route path="/classes" element={<Classes />} />
+                    <Route path="/classes" element={<ClassesPage />} />
                     <Route path="/teacher" element={<TeachersPage />} />
                 </Routes>
             </div>

@@ -1,1 +1,1 @@
-export * from "../teacher/fetchSubjects";
+export * from "./fetchSubjects";

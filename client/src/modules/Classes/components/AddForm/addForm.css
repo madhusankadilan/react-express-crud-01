@@ -1,0 +1,39 @@
+.back-btn {
+    /* padding: 12px 16px;
+    gap: 8px;
+    width: 95px;
+    height: 48px; */
+    background: #ffffff;
+    border: 1px solid #135bb4;
+    border-radius: 8px;
+    /* font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center; */
+    color: #135bb4;
+    margin-right: 1%;
+}
+
+.add-btn {
+    /* padding: 12px 16px;
+    gap: 8px;
+    width: 131px;
+    height: 48px; */
+    background: #135bb4;
+    border-radius: 8px;
+    /* font-family: "Inter";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px; */
+    text-align: center;
+    color: #ffffff;
+}
+
+.form-footer {
+    margin-top: 2%;
+    display: flex;
+    justify-content: end;
+}

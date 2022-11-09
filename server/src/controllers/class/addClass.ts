@@ -5,19 +5,14 @@ const models = require("./../../../models");
 /**
  * Echo endpoint
  */
-export const addTeacher: RequestHandler = async (req, res) => {
+export const addClass: RequestHandler = async (req, res) => {
     try {
-        const { subject, ...rest } = req.body;
+        const data = req.body;
+        console.log(data);
+        
 
         // TODO: Use database transaction here
-        const teacher = await models.Teacher.create(rest);
-
-        if (teacher) {
-            const teachersSubject = await models.TeachersSubject.create({
-                teacherId: teacher.id,
-                subjectId: subject,
-            });
-        }
+        const classData = await models.Class.create(data);
 
         res.status(201).json({
             msg: "Record added successfully",
