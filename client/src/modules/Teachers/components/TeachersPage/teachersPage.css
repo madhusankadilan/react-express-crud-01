@@ -1,0 +1,21 @@
+.empty-List-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+}
+
+.empty-list-msg {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 800;
+    font-size: 18px;
+    line-height: 26px;
+    color: #333333;
+}
+
+.empty-list-button {
+    background: #135bb4;
+    border-radius: 8px;
+}
