@@ -11,6 +11,7 @@ import { AddForm } from "../AddForm";
 export const TeachersPage = () => {
     const [teacherList, setTeacherList] = useState<Teacher[]>([]);
     const [subjectList, setSubjectList] = useState<Subject[]>([]);
+    const [activeRowData, setActiveRowData] = useState<Teacher>({} as Teacher);
     const [localState, setLocalState] = useState({
         isVisibleAddForm: false,
         httpAlert: undefined as any,
@@ -106,13 +107,14 @@ export const TeachersPage = () => {
         <div className="page-wrapper">
             {renderHttpAlert()}
             {validations.isVisibleAddForm ? (
-                <AddForm subjectList={subjectList} hideAddForm={hideAddForm} />
+                <AddForm subjectList={subjectList} hideAddForm={hideAddForm} activeRowData={activeRowData} />
             ) : (
                 <>
                     {validations.hasTeachers ? (
                         <TeachersList
                             teacherList={teacherList}
                             handleAddTeacherClick={handleAddTeacherClick}
+                            setActiveRowData={setActiveRowData}
                         />
                     ) : (
                         <div className="card">{renderAddTeacherButton()}</div>

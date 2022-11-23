@@ -2,25 +2,46 @@ import React from "react";
 import { Button, Select, Form, Input } from "antd";
 import { ArrowLeftOutlined } from "@ant-design/icons";
 import "./addForm.css";
-import { Subject } from "../../models";
-import { addTeacher } from "../../usecases";
+import { Subject, Teacher } from "../../models";
+import { addTeacher, editTeacher } from "../../usecases";
+import { useRunOnce } from "@core";
 
 const { Option } = Select;
 
 type Props = {
     subjectList: Subject[];
+    activeRowData: Teacher;
     hideAddForm: () => void;
 };
 
-export const AddForm = ({ subjectList, hideAddForm }: Props) => {
+export const AddForm = ({ subjectList, activeRowData, hideAddForm }: Props) => {
     const [form] = Form.useForm();
+
+    const validation = {
+        isEditMode:
+            activeRowData && Object.keys(activeRowData).length > 0
+                ? true
+                : false,
+    };
+
+    useRunOnce(async () => {
+        if (validation.isEditMode) {
+            form.setFieldsValue(activeRowData);
+        }
+    });
 
     const handleSubjectChange = (value: number) => {
         form.setFieldsValue({ subject: value });
     };
 
     const onFinish = (values: any) => {
-        addTeacher(values);
+        if (validation.isEditMode) {
+            console.log({ values });
+            editTeacher(values);
+        } else {
+            addTeacher(values);
+        }
+
         form.resetFields();
     };
 
@@ -32,7 +53,9 @@ export const AddForm = ({ subjectList, hideAddForm }: Props) => {
     return (
         <>
             <div className="toolBar">
-                <span className="heading">Add Teacher</span>
+                <span className="heading">{`${
+                    validation.isEditMode ? "Edit" : "Add"
+                } Teacher`}</span>
             </div>
             <Form
                 form={form}
@@ -99,7 +122,7 @@ export const AddForm = ({ subjectList, hideAddForm }: Props) => {
                         type="primary"
                         className="add-btn"
                     >
-                        Add Teacher
+                        {`${validation.isEditMode ? "Edit" : "Add"} Teacher`}
                     </Button>
                 </div>
             </Form>
